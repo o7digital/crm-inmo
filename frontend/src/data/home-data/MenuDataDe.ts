@@ -30,7 +30,7 @@ const baseMenu: MenuItem[] = [
   {
     id: 2,
     title: "Über uns",
-    link: "/de#about-us",
+    link: "/de/about",
     has_dropdown: false,
   },
   {
@@ -42,7 +42,7 @@ const baseMenu: MenuItem[] = [
   {
     id: 4,
     title: "Kontakt",
-    link: "/de#contact",
+    link: "/de/contact",
     has_dropdown: false,
   },
 ];
@@ -50,7 +50,7 @@ const baseMenu: MenuItem[] = [
 const menu_data: MenuItem[] = BLOG_ENABLED
   ? [
       ...baseMenu.slice(0, 3),
-      { id: 99, title: "Blog", link: "/blog", has_dropdown: false },
+      { id: 99, title: "Blog", link: "/de/blog", has_dropdown: false },
       ...baseMenu.slice(3),
     ]
   : baseMenu;

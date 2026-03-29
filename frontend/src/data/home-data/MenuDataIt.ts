@@ -30,19 +30,19 @@ const baseMenu: MenuItem[] = [
   {
     id: 2,
     title: "Chi siamo",
-    link: "/it#quienes-somos",
+    link: "/it/about",
     has_dropdown: false,
   },
   {
     id: 3,
     title: "Servizi",
-    link: "/it/servicios",
+    link: "/it/services",
     has_dropdown: false,
   },
   {
     id: 4,
     title: "Contatto",
-    link: "/it#contact",
+    link: "/it/contact",
     has_dropdown: false,
   },
 ];

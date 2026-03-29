@@ -30,7 +30,7 @@ const baseMenu: MenuItem[] = [
   {
     id: 2,
     title: "Quiénes Somos",
-    link: "/#quienes-somos",
+    link: "/quienes-somos",
     has_dropdown: false,
   },
   {
@@ -42,7 +42,7 @@ const baseMenu: MenuItem[] = [
   {
     id: 4,
     title: "Contacto",
-    link: "/#contacto",
+    link: "/contact",
     has_dropdown: false,
   },
 ];
