@@ -7,6 +7,16 @@ import ServicesContent from "@/components/services/ServicesContent";
 import LocalizedContactForm from "./LocalizedContactForm";
 import { servicesDe, servicesEn, servicesEs, servicesFr, servicesIt } from "@/data/services";
 import { getMarketingContent, type MarketingLocale } from "@/lib/marketingContent";
+import BLockFeatureOne from "@/components/homes/home-eight/BLockFeatureOne";
+import FancyBannerOne from "@/components/homes/home-eight/FancyBannerOne";
+import BLockFeatureOneEn from "@/components/homes/home-eight-en/BLockFeatureOneEn";
+import FancyBannerOneEn from "@/components/homes/home-eight-en/FancyBannerOneEn";
+import BLockFeatureOneFr from "@/components/homes/home-eight-fr/BLockFeatureOneFr";
+import FancyBannerOneFr from "@/components/homes/home-eight-fr/FancyBannerOneFr";
+import BLockFeatureOneIt from "@/components/homes/home-eight-it/BLockFeatureOneIt";
+import FancyBannerOneIt from "@/components/homes/home-eight-it/FancyBannerOneIt";
+import BLockFeatureOneDe from "@/components/homes/home-eight-de/BLockFeatureOneDe";
+import FancyBannerOneDe from "@/components/homes/home-eight-de/FancyBannerOneDe";
 import styles from "./LocalizedPublicPages.module.css";
 
 const servicesByLocale = {
@@ -83,6 +93,22 @@ function PageShell({ children }: { children: ReactNode }) {
   );
 }
 
+function AboutFeatureBlocks({ locale }: { locale: MarketingLocale }) {
+  if (locale === "en") return <BLockFeatureOneEn />;
+  if (locale === "fr") return <BLockFeatureOneFr />;
+  if (locale === "it") return <BLockFeatureOneIt />;
+  if (locale === "de") return <BLockFeatureOneDe />;
+  return <BLockFeatureOne />;
+}
+
+function AboutFounderBanner({ locale }: { locale: MarketingLocale }) {
+  if (locale === "en") return <FancyBannerOneEn />;
+  if (locale === "fr") return <FancyBannerOneFr />;
+  if (locale === "it") return <FancyBannerOneIt />;
+  if (locale === "de") return <FancyBannerOneDe />;
+  return <FancyBannerOne />;
+}
+
 export function LocalizedAboutContentPage({ locale }: { locale: MarketingLocale }) {
   const marketing = getMarketingContent(locale);
   const routes = routeByLocale[locale];
@@ -141,6 +167,8 @@ export function LocalizedAboutContentPage({ locale }: { locale: MarketingLocale 
           </div>
         </div>
       </main>
+      <AboutFeatureBlocks locale={locale} />
+      <AboutFounderBanner locale={locale} />
     </PageShell>
   );
 }
