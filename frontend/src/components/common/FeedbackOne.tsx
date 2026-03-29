@@ -1,6 +1,5 @@
 "use client"
 import Image, { StaticImageData } from "next/image";
-import type { ReactNode } from "react";
 import Slider from "react-slick";
 
 import feedbackImg_1 from "@/assets/images/media/img_01.jpg";
@@ -9,7 +8,7 @@ import feedbackImg_3 from "@/assets/images/media/img_03.jpg";
 
 interface DataType {
    id: number;
-   blockquote: ReactNode;
+   blockquote: JSX.Element;
    name: string;
    country: string;
    img: StaticImageData;

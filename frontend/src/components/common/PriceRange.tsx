@@ -1,5 +1,4 @@
 "use client"
-import type { CSSProperties } from "react";
 import { getTrackBackground, Range } from "react-range";
 // prop type 
 type IProps = {
@@ -33,7 +32,7 @@ const PriceRange = ({ STEP, MIN, MAX, values, handleChanges }: IProps) => {
                         min: MIN,
                         max: MAX
                      }),
-                  } as CSSProperties}
+                  }}
                >
                   {children}
                </div>
@@ -51,7 +50,7 @@ const PriceRange = ({ STEP, MIN, MAX, values, handleChanges }: IProps) => {
                      outline: "none",
                      borderRadius: "50px",
                      border: "2px solid #000",
-                  } as CSSProperties}
+                  }}
                />
             )}
          />
