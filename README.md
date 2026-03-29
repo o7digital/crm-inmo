@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PulseCRM MVP
 
-## Getting Started
+Multi-tenant CRM dashboard MVP using **Next.js 15 + Tailwind** for the frontend and **NestJS 11 + Prisma + PostgreSQL** for the API.
 
-First, run the development server:
+## Quick start
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1) Start Postgres (Docker): `docker compose up -d db`
+2) API
+   - `cd api`
+   - copy env: `cp .env.example .env` (adjust `DATABASE_URL`, `JWT_SECRET`)
+   - (optional, for IA Pulse) set `HF_API_KEY` (or `HF_TOKEN`) in `api/.env`
+   - run migrations: `npx prisma migrate dev --name init`
+   - start dev: `npm run start:dev` (serves on http://localhost:4000/api)
+3) Frontend
+   - `cd frontend`
+   - copy env: `cp .env.example .env.local`
+   - run dev server: `npm run dev` (http://localhost:3000)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Login/register flows hit `/api/auth`. All resources are tenant-scoped via JWT.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Demo features
+- Auth + multi-tenant bootstrap on registration
+- Dashboard KPIs (clients, tasks, invoice volume, recent invoices)
+- Client CRUD
+- Tasks linked to clients
+- Invoice upload with stubbed AI extraction + storage
+- CSV exports for clients and invoices
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Notes
+- AI extraction is a stub (filename parsing + sample dates) to stay demoable without external services.
+- Files are stored locally under `api/uploads/{tenantId}`. Swap to S3 or another provider for production.
+- Keep JWT secret safe and enforce HTTPS in real deployments.
