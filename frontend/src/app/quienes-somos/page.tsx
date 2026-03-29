@@ -1,4 +1,7 @@
 import type { Metadata } from "next"
+import Wrapper from "@/layouts/Wrapper";
+import HeaderFive from "@/layouts/headers/HeaderFive";
+import FooterThree from "@/layouts/footers/FooterThree";
 
 const BASE_URL = "https://www.cervantesbienesraices.com"
 
@@ -25,46 +28,75 @@ export const metadata: Metadata = {
 
 export default function QuienesSomos() {
   return (
-    <main className="container mx-auto py-16 px-4">
-      <h1 className="text-4xl font-bold mb-8">Quiénes Somos</h1>
+    <Wrapper>
+      <div className="main-page-wrapper">
+        <HeaderFive />
+        <main className="container pt-140 pb-120">
+          <div className="row">
+            <div className="col-xl-10">
+              <div className="title-one mb-50">
+                <h2>Quiénes Somos</h2>
+              </div>
 
-      <p className="mb-4">
-        En <strong>Cervantes Bienes Raíces</strong> somos una agencia
-        inmobiliaria profesional especializada en bienes raíces de lujo en
-        Ciudad de México. Trabajamos con propiedades exclusivas y de alto valor
-        en Polanco, Lomas de Chapultepec, Condesa, Roma y Santa Fe.
-      </p>
+              <div className="fs-22 lh-lg text-dark">
+                <p className="mb-30">
+                  En <strong>Cervantes Bienes Raíces</strong> somos una agencia
+                  inmobiliaria profesional especializada en bienes raíces de lujo
+                  en Ciudad de México. Trabajamos con propiedades exclusivas y
+                  de alto valor en Polanco, Lomas de Chapultepec, Condesa, Roma
+                  y Santa Fe.
+                </p>
 
-      <p className="mb-4">
-        Nuestro equipo ofrece asesoría personalizada para compradores
-        nacionales, expatriados y extranjeros interesados en adquirir
-        propiedades premium en México, ya sea para vivir, invertir o
-        diversificar patrimonio.
-      </p>
+                <p className="mb-30">
+                  Nuestro equipo ofrece asesoría personalizada para compradores
+                  nacionales, expatriados y extranjeros interesados en adquirir
+                  propiedades premium en México, ya sea para vivir, invertir o
+                  diversificar patrimonio.
+                </p>
 
-      <p className="mb-4">
-        Contamos con amplia experiencia en valuación inmobiliaria, análisis de
-        mercado, negociación estratégica y acompañamiento legal, garantizando
-        procesos de compra-venta transparentes, eficientes y seguros.
-      </p>
+                <p className="mb-30">
+                  Contamos con amplia experiencia en valuación inmobiliaria,
+                  análisis de mercado, negociación estratégica y acompañamiento
+                  legal, garantizando procesos de compra-venta transparentes,
+                  eficientes y seguros.
+                </p>
 
-      <p className="mb-4">
-        En cada operación ofrecemos acompañamiento integral: desde la búsqueda
-        de la propiedad ideal hasta la negociación, revisión de documentos,
-        trámites legales y entrega final.
-      </p>
+                <p className="mb-40">
+                  En cada operación ofrecemos acompañamiento integral: desde la
+                  búsqueda de la propiedad ideal hasta la negociación, revisión
+                  de documentos, trámites legales y entrega final.
+                </p>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Nuestra Filosofía</h2>
-      <p className="mb-4">
-        En Cervantes Bienes Raíces creemos que cada propiedad representa mucho
-        más que un activo inmobiliario: es un espacio de vida, un patrimonio
-        personal y un proyecto a largo plazo.
-      </p>
-      <ul className="list-disc list-inside space-y-2">
-        <li>Confianza: relaciones duraderas basadas en transparencia, ética y confidencialidad.</li>
-        <li>Precisión: recomendaciones respaldadas por análisis reales del mercado premium.</li>
-        <li>Excelencia: búsqueda constante de la mejor oportunidad en ubicación, valor y calidad de vida.</li>
-      </ul>
-    </main>
+                <div className="title-one mb-25">
+                  <h3>Nuestra Filosofía</h3>
+                </div>
+
+                <p className="mb-30">
+                  En Cervantes Bienes Raíces creemos que cada propiedad
+                  representa mucho más que un activo inmobiliario: es un espacio
+                  de vida, un patrimonio personal y un proyecto a largo plazo.
+                </p>
+
+                <ul className="list-style-one style-none">
+                  <li className="mb-15">
+                    <strong>Confianza:</strong> relaciones duraderas basadas en
+                    transparencia, ética y confidencialidad.
+                  </li>
+                  <li className="mb-15">
+                    <strong>Precisión:</strong> recomendaciones respaldadas por
+                    análisis reales del mercado premium.
+                  </li>
+                  <li>
+                    <strong>Excelencia:</strong> búsqueda constante de la mejor
+                    oportunidad en ubicación, valor y calidad de vida.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </main>
+        <FooterThree />
+      </div>
+    </Wrapper>
   );
 }
