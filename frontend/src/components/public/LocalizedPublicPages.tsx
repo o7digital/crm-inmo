@@ -17,6 +17,7 @@ import BLockFeatureOneIt from "@/components/homes/home-eight-it/BLockFeatureOneI
 import FancyBannerOneIt from "@/components/homes/home-eight-it/FancyBannerOneIt";
 import BLockFeatureOneDe from "@/components/homes/home-eight-de/BLockFeatureOneDe";
 import FancyBannerOneDe from "@/components/homes/home-eight-de/FancyBannerOneDe";
+import LocalizedServiceLeadSections from "./LocalizedServiceLeadSections";
 import styles from "./LocalizedPublicPages.module.css";
 
 const servicesByLocale = {
@@ -216,6 +217,12 @@ export function LocalizedServicesContentPage({ locale }: { locale: MarketingLoca
           </div>
         </div>
       </section>
+
+      <LocalizedServiceLeadSections
+        locale={locale}
+        contactHref={routes.contact}
+        pagePath={routes.services}
+      />
     </PageShell>
   );
 }

@@ -5,6 +5,7 @@ import styles from "./PremiumHome.module.scss";
 import OrganizationSchema from "@/components/common/OrganizationSchema";
 import { servicesDe, servicesEn, servicesEs, servicesFr, servicesIt } from "@/data/services";
 import { getMarketingContent, type MarketingLocale } from "@/lib/marketingContent";
+import LocalizedServiceLeadSections from "@/components/public/LocalizedServiceLeadSections";
 
 type FeaturedProperty = {
   id: string;
@@ -615,6 +616,7 @@ const HomePremium = ({ locale = "es" }: HomePremiumProps) => {
   const ui = homeUi[locale];
   const services = servicesByLocale[locale];
   const properties = featuredProperties[locale];
+  const homePath = locale === "es" ? "/" : `/${locale}`;
 
   return (
     <div className={styles.wrap}>
@@ -715,6 +717,12 @@ const HomePremium = ({ locale = "es" }: HomePremiumProps) => {
             </div>
           </div>
         </section>
+
+        <LocalizedServiceLeadSections
+          locale={locale}
+          contactHref={routes.contact}
+          pagePath={homePath}
+        />
 
         <section className={styles.section}>
           <div className={styles.container}>
