@@ -77,6 +77,24 @@ const trustSignals = [
   { value: "Premium", label: "Enfoque boutique para compra, venta e inversión" },
 ];
 
+const testimonials = [
+  {
+    quote:
+      "Gracias a Cervantes bienes raíces pude vender mi casa que llevaba 2 años y no se vendía.",
+    author: "Cliente",
+  },
+  {
+    quote:
+      "Cuando contacté a Cervantes bienes raíces me enseñaron varios departamentos hasta que encontré el que más me gustaba.",
+    author: "Cliente",
+  },
+  {
+    quote:
+      "Javier Cervantes me acompañó en el proceso de venta de mi casa de principio a fin, me presentó y coordinó todo el tema con la notaría.",
+    author: "Cliente",
+  },
+];
+
 const HomePremium = () => {
   return (
     <div className={styles.wrap}>
@@ -330,39 +348,23 @@ const HomePremium = () => {
         <section className={styles.section}>
           <div className={styles.container}>
             <span className={styles.kicker}>Testimonios</span>
-            <h2 className={styles.h2}>Clientes exigentes, experiencias cuidadas</h2>
+            <h2 className={styles.h2}>Testimoniales de Clientes</h2>
             <p className={styles.lead}>
-              Un servicio de alto contacto: claridad, discreción y ejecución.
+              La satisfacción de nuestros clientes habla por sí sola. Conoce sus
+              experiencias.
             </p>
 
             <div className={styles.testimonials}>
-              <figure className={styles.quote}>
-                <blockquote className={styles.quoteText}>
-                  “Nos guiaron con análisis y estrategia. La negociación fue
-                  impecable y el cierre, muy bien acompañado.”
-                </blockquote>
-                <figcaption className={styles.quoteMeta}>
-                  Comprador • Polanco
-                </figcaption>
-              </figure>
-              <figure className={styles.quote}>
-                <blockquote className={styles.quoteText}>
-                  “La valuación y el filtro de compradores marcaron la
-                  diferencia. Vendimos con discreción y control del proceso.”
-                </blockquote>
-                <figcaption className={styles.quoteMeta}>
-                  Propietaria • Condesa
-                </figcaption>
-              </figure>
-              <figure className={styles.quote}>
-                <blockquote className={styles.quoteText}>
-                  “Enfoque de inversión real: comparables, riesgos y una tesis
-                  clara. Tomamos una decisión con certeza.”
-                </blockquote>
-                <figcaption className={styles.quoteMeta}>
-                  Inversionista • Roma Norte
-                </figcaption>
-              </figure>
+              {testimonials.map((item) => (
+                <figure key={item.quote} className={styles.quote}>
+                  <blockquote className={styles.quoteText}>
+                    “{item.quote}”
+                  </blockquote>
+                  <figcaption className={styles.quoteMeta}>
+                    {item.author}
+                  </figcaption>
+                </figure>
+              ))}
             </div>
           </div>
         </section>
