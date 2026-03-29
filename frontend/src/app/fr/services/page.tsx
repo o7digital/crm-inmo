@@ -1,8 +1,8 @@
-import { MarketingServicesPage } from "@/components/marketing/MarketingPages";
+import { LocalizedServicesContentPage } from "@/components/public/LocalizedPublicPages";
 import { buildMarketingMetadata } from "@/lib/marketingSeo";
 
 export const metadata = buildMarketingMetadata("fr", "services");
 
 export default function FrServicesPage() {
-  return <MarketingServicesPage locale="fr" />;
+  return <LocalizedServicesContentPage locale="fr" />;
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Contact from "@/components/inner-pages/contact";
-import Wrapper from "@/layouts/Wrapper";
+import { LocalizedContactContentPage } from "@/components/public/LocalizedPublicPages";
 
 const BASE_URL = "https://www.cervantesbienesraices.com";
 
@@ -29,11 +28,7 @@ export const metadata: Metadata = {
 };
 
 const index = () => {
-  return (
-    <Wrapper>
-      <Contact />
-    </Wrapper>
-  );
+  return <LocalizedContactContentPage locale="es" />;
 };
 
 export default index;

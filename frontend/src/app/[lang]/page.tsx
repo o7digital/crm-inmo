@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { MarketingHomePage } from "@/components/marketing/MarketingPages";
+import HomePremium from "@/components/homes/home-premium";
+import Wrapper from "@/layouts/Wrapper";
 import { buildMarketingMetadata } from "@/lib/marketingSeo";
 import { isMarketingLocale, secondaryMarketingLocales } from "@/lib/marketingContent";
 
@@ -20,5 +21,9 @@ export async function generateMetadata({ params }: Props) {
 export default async function LocalizedHomePage({ params }: Props) {
   const { lang } = await params;
   if (!isMarketingLocale(lang) || lang === "es") notFound();
-  return <MarketingHomePage locale={lang} />;
+  return (
+    <Wrapper>
+      <HomePremium locale={lang} />
+    </Wrapper>
+  );
 }

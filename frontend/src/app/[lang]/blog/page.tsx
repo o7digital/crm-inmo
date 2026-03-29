@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { MarketingBlogPage } from '@/components/marketing/MarketingPages';
+import { LocalizedBlogContentPage } from '@/components/public/LocalizedPublicPages';
 import { buildMarketingMetadata } from '@/lib/marketingSeo';
 import { isMarketingLocale, secondaryMarketingLocales } from '@/lib/marketingContent';
 
@@ -20,5 +20,5 @@ export async function generateMetadata({ params }: Props) {
 export default async function LocalizedBlogPage({ params }: Props) {
   const { lang } = await params;
   if (!isMarketingLocale(lang) || lang === 'es') notFound();
-  return <MarketingBlogPage locale={lang} />;
+  return <LocalizedBlogContentPage locale={lang} />;
 }

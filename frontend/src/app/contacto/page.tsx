@@ -1,8 +1,8 @@
-import { MarketingContactPage } from '@/components/marketing/MarketingPages';
+import { LocalizedContactContentPage } from '@/components/public/LocalizedPublicPages';
 import { buildMarketingMetadata } from '@/lib/marketingSeo';
 
 export const metadata = buildMarketingMetadata('es', 'contact');
 
 export default function ContactoPage() {
-  return <MarketingContactPage locale="es" />;
+  return <LocalizedContactContentPage locale="es" />;
 }

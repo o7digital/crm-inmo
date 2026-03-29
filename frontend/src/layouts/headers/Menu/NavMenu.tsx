@@ -16,6 +16,16 @@ const NavMenu = () => {
     const pathname = usePathname();
     const currentRoute = usePathname();
     const { lang } = useLanguage();
+    const homeHref =
+      lang === "en"
+        ? "/en"
+        : lang === "fr"
+        ? "/fr"
+        : lang === "it"
+        ? "/it"
+        : lang === "de"
+        ? "/de"
+        : "/";
     const items =
       lang === "en"
         ? menu_data_en
@@ -47,7 +57,7 @@ const NavMenu = () => {
 
     return (
         <ul className="navbar-nav align-items-lg-center">
-            <li className="d-block d-lg-none"><div className="logo"><Link href="/" className="d-block"><Image src={logo} alt="" /></Link></div></li>
+            <li className="d-block d-lg-none"><div className="logo"><Link href={homeHref} className="d-block"><Image src={logo} alt="" /></Link></div></li>
             {items.map((menu: any) => (
                 <li key={menu.id} className={`nav-item dropdown ${menu.class_name}`}>
                     <Link href={menu.link} className={`nav-link dropdown-toggle ${pathname === menu.link ? 'active' : ''}

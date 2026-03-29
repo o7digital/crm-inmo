@@ -4,8 +4,20 @@ import Link from "next/link"
 
 import footerLogo from "@/assets/images/logo/logo_06.svg"
 import footerShape_1 from "@/assets/images/shape/shape_52.svg"
+import useLanguage from "@/hooks/useLanguage"
 
 const FooterThree = () => {
+   const { lang } = useLanguage();
+   const homeHref = lang === "en"
+      ? "/en"
+      : lang === "fr"
+      ? "/fr"
+      : lang === "it"
+      ? "/it"
+      : lang === "de"
+      ? "/de"
+      : "/";
+
    return (
       <div className="footer-three">
          <div className="container container-large">
@@ -14,7 +26,7 @@ const FooterThree = () => {
                   <div className="col-xl-3 mb-40 lg-mb-60">
                      <div className="footer-intro pe-xxl-5 pe-xl-3">
                         <div className="logo mb-15">
-                           <Link href="/">
+                           <Link href={homeHref}>
                               <Image src={footerLogo} alt="Cervantes Bienes Raíces" />
                            </Link>
                         </div>
