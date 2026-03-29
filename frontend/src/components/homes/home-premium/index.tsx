@@ -99,6 +99,11 @@ const testimonials = [
       "Javier Cervantes me acompañó en el proceso de venta de mi casa de principio a fin, me presentó y coordinó todo el tema con la notaría.",
     author: "Cliente",
   },
+  {
+    quote:
+      "Julio Cervantes me consiguió el depa donde vivo justo con las especificaciones que pedí, sin tantas vueltas y sin enseñarme de más.",
+    author: "Cliente",
+  },
 ];
 
 const HomePremium = () => {
@@ -351,22 +356,21 @@ const HomePremium = () => {
 
         <section className={styles.section}>
           <div className={styles.container}>
-            <span className={styles.kicker}>Acompañamiento</span>
-            <h2 className={styles.h2}>Un proceso completo, de la búsqueda al cierre</h2>
+            <span className={styles.kicker}>Testimonios</span>
+            <h2 className={styles.h2}>Testimoniales de Clientes</h2>
             <p className={styles.lead}>
-              Cada recomendación se sustenta en datos reales del mercado
-              inmobiliario premium de CDMX y en un seguimiento integral durante
-              toda la operación.
+              La satisfacción de nuestros clientes habla por sí sola. Conoce sus
+              experiencias.
             </p>
 
             <div className={styles.testimonials}>
-              {aboutParagraphs.slice(2).map((item) => (
-                <figure key={item} className={styles.quote}>
+              {testimonials.map((item) => (
+                <figure key={item.quote} className={styles.quote}>
                   <blockquote className={styles.quoteText}>
-                    {item}
+                    “{item.quote}”
                   </blockquote>
                   <figcaption className={styles.quoteMeta}>
-                    Cervantes Bienes Raíces
+                    {item.author}
                   </figcaption>
                 </figure>
               ))}
