@@ -125,7 +125,7 @@ export function LocalizedAboutContentPage({ locale }: { locale: MarketingLocale 
             <p className="fs-22 lh-lg text-dark mt-20">{marketing.about.intro}</p>
           </div>
 
-          <div className="row g-4">
+          <div className="row g-4 align-items-start">
             <div className="col-xl-7">
               <article className={styles.card}>
                 {marketing.about.paragraphs.map((paragraph) => (
@@ -196,7 +196,7 @@ export function LocalizedServicesContentPage({ locale }: { locale: MarketingLoca
             <p className="fs-22 lh-lg text-dark mt-20">{marketing.services.intro}</p>
           </div>
 
-          <div className="row g-4">
+          <div className="row g-4 align-items-start">
             {marketing.services.differentiators.map((item) => (
               <div key={item.title} className="col-lg-4 col-md-6">
                 <article className={styles.card}>
@@ -241,7 +241,7 @@ export function LocalizedContactContentPage({ locale }: { locale: MarketingLocal
             <p className="fs-22 lh-lg text-dark mt-20">{marketing.contact.intro}</p>
           </div>
 
-          <div className="row g-4">
+          <div className="row g-4 align-items-start">
             <div className="col-xl-5">
               <article className={`${styles.card} mb-4`}>
                 <span className={styles.smallKicker}>{marketing.contact.coverageTitle}</span>
