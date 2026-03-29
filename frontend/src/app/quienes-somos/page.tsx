@@ -29,32 +29,41 @@ export default function QuienesSomos() {
       <h1 className="text-4xl font-bold mb-8">Quiénes Somos</h1>
 
       <p className="mb-4">
-        En <strong>LC Inmobiliaria</strong> ofrecemos un servicio basado en la confianza,
-        la experiencia y la transparencia. Nuestra fundadora,
-        <strong> Ma. de Lourdes Cázares Arce</strong>, cuenta con más de
-        <strong> 20 años de trayectoria en el sector inmobiliario</strong>,
-        colaborando con diversas agencias reconocidas y consolidándose como asesora independiente.
+        En <strong>Cervantes Bienes Raíces</strong> somos una agencia
+        inmobiliaria profesional especializada en bienes raíces de lujo en
+        Ciudad de México. Trabajamos con propiedades exclusivas y de alto valor
+        en Polanco, Lomas de Chapultepec, Condesa, Roma y Santa Fe.
       </p>
 
       <p className="mb-4">
-        A lo largo de los años hemos formado <strong>alianzas estratégicas con colegas de confianza</strong>,
-        lo que nos ha permitido concretar operaciones seguras y exitosas.
-        Nuestro compromiso es brindar un servicio responsable, formal y transparente,
-        que garantice la tranquilidad de nuestros clientes en cada operación.
+        Nuestro equipo ofrece asesoría personalizada para compradores
+        nacionales, expatriados y extranjeros interesados en adquirir
+        propiedades premium en México, ya sea para vivir, invertir o
+        diversificar patrimonio.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Nuestra pasión</h2>
       <p className="mb-4">
-        Ayudar a las personas a alcanzar sus sueños: encontrar el <strong>hogar perfecto</strong>
-        o la <strong>propiedad ideal para sus negocios</strong>.
+        Contamos con amplia experiencia en valuación inmobiliaria, análisis de
+        mercado, negociación estratégica y acompañamiento legal, garantizando
+        procesos de compra-venta transparentes, eficientes y seguros.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Valores que nos definen</h2>
+      <p className="mb-4">
+        En cada operación ofrecemos acompañamiento integral: desde la búsqueda
+        de la propiedad ideal hasta la negociación, revisión de documentos,
+        trámites legales y entrega final.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Nuestra Filosofía</h2>
+      <p className="mb-4">
+        En Cervantes Bienes Raíces creemos que cada propiedad representa mucho
+        más que un activo inmobiliario: es un espacio de vida, un patrimonio
+        personal y un proyecto a largo plazo.
+      </p>
       <ul className="list-disc list-inside space-y-2">
-        <li>🤝 Confianza y cercanía en cada trato</li>
-        <li>📑 Trámites claros y transparentes</li>
-        <li>🏡 Experiencia comprobada de más de 20 años</li>
-        <li>✅ Resultados exitosos para nuestros clientes</li>
+        <li>Confianza: relaciones duraderas basadas en transparencia, ética y confidencialidad.</li>
+        <li>Precisión: recomendaciones respaldadas por análisis reales del mercado premium.</li>
+        <li>Excelencia: búsqueda constante de la mejor oportunidad en ubicación, valor y calidad de vida.</li>
       </ul>
     </main>
   );

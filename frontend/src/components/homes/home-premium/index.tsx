@@ -56,10 +56,9 @@ const featuredProperties: FeaturedProperty[] = [
 ];
 
 const philosophy = [
-  "Confianza y cercanía en cada trato.",
-  "Análisis de mercado y valuación con criterio profesional.",
-  "Acompañamiento legal y documental en todo el proceso.",
-  "Servicio discreto para compradores, propietarios e inversionistas.",
+  "Confianza. Construimos relaciones duraderas basadas en transparencia, ética y confidencialidad.",
+  "Precisión. Cada recomendación está respaldada por análisis reales del mercado premium y datos comparativos actualizados.",
+  "Excelencia. Buscamos siempre la mejor oportunidad para nuestros clientes, ya sea en ubicación, valor, retorno o calidad de vida.",
 ];
 
 const ownerBenefits = [
@@ -75,6 +74,13 @@ const trustSignals = [
   { value: "5", label: "Zonas clave: Polanco, Lomas, Condesa, Roma y Santa Fe" },
   { value: "Legal", label: "Revisión documental, contratos y cierre seguro" },
   { value: "Premium", label: "Enfoque boutique para compra, venta e inversión" },
+];
+
+const aboutParagraphs = [
+  "En Cervantes Bienes Raíces somos una agencia inmobiliaria profesional especializada en bienes raíces de lujo en Ciudad de México. Trabajamos con propiedades exclusivas y de alto valor en Polanco, Lomas de Chapultepec, Condesa, Roma y Santa Fe.",
+  "Nuestro equipo ofrece asesoría personalizada para compradores nacionales, expatriados y extranjeros interesados en adquirir propiedades premium en México, ya sea para vivir, invertir o diversificar patrimonio.",
+  "Contamos con amplia experiencia en valuación inmobiliaria, análisis de mercado, negociación estratégica y acompañamiento legal, garantizando procesos de compra-venta transparentes, eficientes y seguros.",
+  "En cada operación ofrecemos acompañamiento integral: desde la búsqueda de la propiedad ideal hasta la negociación, revisión de documentos, trámites legales y entrega final.",
 ];
 
 const testimonials = [
@@ -148,27 +154,21 @@ const HomePremium = () => {
         <section className={styles.section}>
           <div className={styles.container}>
             <span className={styles.kicker}>Quiénes somos</span>
-            <h2 className={styles.h2}>Contenido Cervantes, dentro del nuevo frente premium</h2>
+            <h2 className={styles.h2}>Asesoría inmobiliaria profesional para propiedades premium</h2>
             <p className={styles.lead}>
-              En Cervantes Bienes Raíces trabajamos con propiedades exclusivas y
-              clientes que necesitan claridad, criterio y acompañamiento real en
-              el mercado inmobiliario premium de Ciudad de México.
+              Representamos a compradores, propietarios e inversionistas con
+              una mezcla precisa de mercado, criterio comercial y acompañamiento
+              legal en las zonas premium de CDMX.
             </p>
 
             <div className={styles.grid2}>
               <article className={styles.card}>
-                <h3 className={styles.cardTitle}>Asesoría inmobiliaria con enfoque boutique</h3>
-                <p className={styles.cardText}>
-                  Somos una agencia inmobiliaria profesional especializada en
-                  bienes raíces de lujo en Ciudad de México. Acompañamos a
-                  compradores, propietarios e inversionistas en Polanco, Lomas
-                  de Chapultepec, Condesa, Roma y Santa Fe.
-                </p>
-                <p className={styles.cardText}>
-                  Nuestro trabajo combina búsqueda curada, valuación,
-                  negociación estratégica y acompañamiento legal para procesos
-                  transparentes, eficientes y seguros.
-                </p>
+                <h3 className={styles.cardTitle}>Quiénes Somos</h3>
+                {aboutParagraphs.slice(0, 2).map((paragraph) => (
+                  <p key={paragraph} className={styles.cardText}>
+                    {paragraph}
+                  </p>
+                ))}
                 <div className={styles.ctaRow}>
                   <a className={`${styles.btn} ${styles.btnPrimary}`} href="/quienes-somos">
                     Conocer a Cervantes
@@ -181,6 +181,11 @@ const HomePremium = () => {
 
               <article className={styles.card}>
                 <h3 className={styles.cardTitle}>Nuestra filosofía</h3>
+                <p className={styles.cardText}>
+                  Cada propiedad representa mucho más que un activo
+                  inmobiliario: es un espacio de vida, un patrimonio personal y
+                  un proyecto a largo plazo.
+                </p>
                 <ul className={styles.checkList}>
                   {philosophy.map((item) => (
                     <li key={item} className={styles.checkItem}>
@@ -199,8 +204,8 @@ const HomePremium = () => {
             <span className={styles.kicker}>Servicios</span>
             <h2 className={styles.h2}>Asesoría integral, estándar premium</h2>
             <p className={styles.lead}>
-              Portamos al nuevo sitio los servicios reales de Cervantes:
-              compra, venta, valuación, documentación y estrategia patrimonial.
+              Soluciones premium para comprar, vender e invertir en las zonas
+              más exclusivas de Ciudad de México.
             </p>
 
             <div className={styles.services}>
@@ -329,9 +334,8 @@ const HomePremium = () => {
             <span className={styles.kicker}>Autoridad</span>
             <h2 className={styles.h2}>Confianza respaldada por proceso</h2>
             <p className={styles.lead}>
-              El nuevo frontend conserva el diseño premium, pero con el mensaje
-              real del sitio Cervantes: experiencia, zonas premium y criterio
-              inmobiliario.
+              Nuestro enfoque se basa en la discreción, la ética profesional y
+              una filosofía de servicio centrada 100% en el cliente.
             </p>
 
             <div className={styles.trustRow}>
@@ -347,21 +351,22 @@ const HomePremium = () => {
 
         <section className={styles.section}>
           <div className={styles.container}>
-            <span className={styles.kicker}>Testimonios</span>
-            <h2 className={styles.h2}>Testimoniales de Clientes</h2>
+            <span className={styles.kicker}>Acompañamiento</span>
+            <h2 className={styles.h2}>Un proceso completo, de la búsqueda al cierre</h2>
             <p className={styles.lead}>
-              La satisfacción de nuestros clientes habla por sí sola. Conoce sus
-              experiencias.
+              Cada recomendación se sustenta en datos reales del mercado
+              inmobiliario premium de CDMX y en un seguimiento integral durante
+              toda la operación.
             </p>
 
             <div className={styles.testimonials}>
-              {testimonials.map((item) => (
-                <figure key={item.quote} className={styles.quote}>
+              {aboutParagraphs.slice(2).map((item) => (
+                <figure key={item} className={styles.quote}>
                   <blockquote className={styles.quoteText}>
-                    “{item.quote}”
+                    {item}
                   </blockquote>
                   <figcaption className={styles.quoteMeta}>
-                    {item.author}
+                    Cervantes Bienes Raíces
                   </figcaption>
                 </figure>
               ))}

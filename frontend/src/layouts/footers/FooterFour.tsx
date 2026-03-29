@@ -15,7 +15,7 @@ const FooterFour = () => {
                      <div className="footer-intro">
                         <div className="logo mb-20">
                            <Link href="/">
-                              <Image src={footerLogo} alt="LC Inmobiliaria" />
+                              <Image src={footerLogo} alt="Cervantes Bienes Raíces" />
                            </Link>
                         </div>
                         <p className="mb-30 xs-mb-20">Av. Paseo de la Reforma 350, Piso 8, Col. Juárez, CDMX, México</p>
