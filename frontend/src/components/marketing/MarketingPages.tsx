@@ -48,8 +48,9 @@ export function MarketingHomePage({ locale }: { locale: MarketingLocale }) {
 
   return (
     <MarketingShell locale={locale} page="home">
-      <section className="border-b border-stone-200/80">
-        <div className="marketing-container relative overflow-hidden rounded-[2rem] border border-stone-200/80 bg-white/80 shadow-[0_24px_70px_rgba(57,41,23,0.12)]">
+      <section className="relative overflow-hidden border-b border-stone-200/80 bg-[#f7f2ea]">
+        <div className="absolute inset-0 bg-[#f7f2ea]" aria-hidden="true" />
+        <div className="relative min-h-[720px]">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url('/marketing/hero-bg.jpg')" }}
@@ -59,13 +60,13 @@ export function MarketingHomePage({ locale }: { locale: MarketingLocale }) {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(90deg, rgba(249,245,239,0.97) 0%, rgba(249,245,239,0.95) 34%, rgba(249,245,239,0.76) 56%, rgba(249,245,239,0.2) 100%)',
+                'linear-gradient(90deg, rgba(249,245,239,0.98) 0%, rgba(249,245,239,0.95) 28%, rgba(249,245,239,0.72) 54%, rgba(249,245,239,0.16) 100%)',
             }}
             aria-hidden="true"
           />
 
-          <div className="relative px-6 py-14 lg:px-10 lg:py-16">
-            <div className="max-w-[680px] space-y-7">
+          <div className="relative marketing-container flex min-h-[720px] items-start py-16 lg:items-center lg:py-20">
+            <div className="max-w-[700px] space-y-7">
               <div className="flex flex-wrap gap-3">
                 {marketing.hero.tags.map((tag) => (
                   <span key={tag} className="marketing-pill">
@@ -112,7 +113,7 @@ export function MarketingHomePage({ locale }: { locale: MarketingLocale }) {
           </div>
         </div>
 
-        <div className="marketing-container grid gap-3 pt-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="marketing-container relative z-10 grid gap-3 py-6 sm:grid-cols-2 lg:grid-cols-4">
           {marketing.stats.map((item) => (
             <div key={item.label} className="marketing-card bg-white/82 p-5">
               <p className="text-3xl font-semibold text-stone-900">{item.value}</p>
