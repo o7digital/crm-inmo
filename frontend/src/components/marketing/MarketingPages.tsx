@@ -66,46 +66,49 @@ export function MarketingHomePage({ locale }: { locale: MarketingLocale }) {
 
           <div className="relative px-6 py-14 lg:px-10 lg:py-16">
             <div className="max-w-[680px] space-y-7">
-            <div className="flex flex-wrap gap-3">
-              {marketing.hero.tags.map((tag) => (
-                <span key={tag} className="marketing-pill">
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <div className="space-y-6">
-              <p className="marketing-kicker">{marketing.hero.eyebrow}</p>
-              <h1 className="max-w-4xl text-5xl font-extrabold leading-[0.92] tracking-[-0.05em] text-stone-950 sm:text-6xl lg:text-[5.2rem]">
-                {marketing.hero.title}
-              </h1>
-              <p className="max-w-2xl text-lg leading-8 text-stone-600 lg:text-[1.15rem]">{marketing.hero.description}</p>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3">
-              <Link href={getMarketingPath(locale, 'services')} className="marketing-button-primary">
-                {marketing.ctas.contact}
-              </Link>
-              <Link href={getMarketingPath(locale, 'contact')} className="marketing-button-secondary bg-white/88">
-                {heroUi.secondaryCta}
-              </Link>
-              <span className="rounded-full border border-stone-200 bg-white/78 px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
-                {heroUi.badge}
-              </span>
-            </div>
-
-            <form className="max-w-[620px]">
-              <div className="flex flex-col gap-3 rounded-[1.7rem] border border-stone-200/90 bg-white/86 p-3 shadow-[0_10px_30px_rgba(57,41,23,0.08)] sm:flex-row sm:items-center">
-                <input
-                  type="text"
-                  placeholder={heroUi.searchPlaceholder}
-                  className="h-14 flex-1 rounded-[1.25rem] border border-stone-200 bg-white px-5 text-base text-stone-700 outline-none"
-                />
-                <button type="button" className="marketing-button-primary h-14 min-w-[170px]">
-                  {heroUi.searchButton}
-                </button>
+              <div className="flex flex-wrap gap-3">
+                {marketing.hero.tags.map((tag) => (
+                  <span key={tag} className="marketing-pill">
+                    {tag}
+                  </span>
+                ))}
               </div>
-            </form>
+
+              <div className="space-y-6">
+                <p className="marketing-kicker">{marketing.hero.eyebrow}</p>
+                <h1 className="max-w-4xl text-5xl font-extrabold leading-[0.92] tracking-[-0.05em] text-stone-950 sm:text-6xl lg:text-[5.2rem]">
+                  {marketing.hero.title}
+                </h1>
+                <p className="max-w-2xl text-lg leading-8 text-stone-600 lg:text-[1.15rem]">
+                  {marketing.hero.description}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3">
+                <Link href={getMarketingPath(locale, 'services')} className="marketing-button-primary">
+                  {marketing.ctas.contact}
+                </Link>
+                <Link href={getMarketingPath(locale, 'contact')} className="marketing-button-secondary bg-white/88">
+                  {heroUi.secondaryCta}
+                </Link>
+                <span className="rounded-full border border-stone-200 bg-white/78 px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
+                  {heroUi.badge}
+                </span>
+              </div>
+
+              <form className="max-w-[620px]">
+                <div className="flex flex-col gap-3 rounded-[1.7rem] border border-stone-200/90 bg-white/86 p-3 shadow-[0_10px_30px_rgba(57,41,23,0.08)] sm:flex-row sm:items-center">
+                  <input
+                    type="text"
+                    placeholder={heroUi.searchPlaceholder}
+                    className="h-14 flex-1 rounded-[1.25rem] border border-stone-200 bg-white px-5 text-base text-stone-700 outline-none"
+                  />
+                  <button type="button" className="marketing-button-primary h-14 min-w-[170px]">
+                    {heroUi.searchButton}
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
 
