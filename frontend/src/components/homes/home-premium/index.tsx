@@ -2,6 +2,7 @@ import HeaderFive from "@/layouts/headers/HeaderFive";
 import FooterThree from "@/layouts/footers/FooterThree";
 import styles from "./PremiumHome.module.scss";
 import OrganizationSchema from "@/components/common/OrganizationSchema";
+import { servicesEs } from "@/data/services";
 
 type FeaturedProperty = {
   id: string;
@@ -52,6 +53,28 @@ const featuredProperties: FeaturedProperty[] = [
     imageUrl:
       "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=2000&q=60",
   },
+];
+
+const philosophy = [
+  "Confianza y cercanía en cada trato.",
+  "Análisis de mercado y valuación con criterio profesional.",
+  "Acompañamiento legal y documental en todo el proceso.",
+  "Servicio discreto para compradores, propietarios e inversionistas.",
+];
+
+const ownerBenefits = [
+  "Valuación profesional y análisis de mercado.",
+  "Posicionamiento premium y difusión selectiva.",
+  "Filtro de compradores nacionales y extranjeros.",
+  "Acompañamiento legal y documental de principio a fin.",
+  "Seguimiento comercial con reportes claros.",
+];
+
+const trustSignals = [
+  { value: "+20", label: "Años de experiencia en asesoría inmobiliaria" },
+  { value: "5", label: "Zonas clave: Polanco, Lomas, Condesa, Roma y Santa Fe" },
+  { value: "Legal", label: "Revisión documental, contratos y cierre seguro" },
+  { value: "Premium", label: "Enfoque boutique para compra, venta e inversión" },
 ];
 
 const HomePremium = () => {
@@ -106,46 +129,48 @@ const HomePremium = () => {
 
         <section className={styles.section}>
           <div className={styles.container}>
-            <span className={styles.kicker}>Tres audiencias, una firma</span>
-            <h2 className={styles.h2}>Una experiencia clara para cada objetivo</h2>
+            <span className={styles.kicker}>Quiénes somos</span>
+            <h2 className={styles.h2}>Contenido Cervantes, dentro del nuevo frente premium</h2>
             <p className={styles.lead}>
-              No somos un portal de anuncios. Somos una agencia y firma de
-              asesoría inmobiliaria con procesos, criterio y acompañamiento
-              integral.
+              En Cervantes Bienes Raíces trabajamos con propiedades exclusivas y
+              clientes que necesitan claridad, criterio y acompañamiento real en
+              el mercado inmobiliario premium de Ciudad de México.
             </p>
 
             <div className={styles.grid2}>
               <article className={styles.card}>
-                <h3 className={styles.cardTitle}>Comprar o Invertir</h3>
+                <h3 className={styles.cardTitle}>Asesoría inmobiliaria con enfoque boutique</h3>
                 <p className={styles.cardText}>
-                  Búsqueda curada, análisis comparativo, negociación y soporte
-                  legal. Diseñamos una estrategia alineada a tu estilo de vida o
-                  portafolio.
+                  Somos una agencia inmobiliaria profesional especializada en
+                  bienes raíces de lujo en Ciudad de México. Acompañamos a
+                  compradores, propietarios e inversionistas en Polanco, Lomas
+                  de Chapultepec, Condesa, Roma y Santa Fe.
+                </p>
+                <p className={styles.cardText}>
+                  Nuestro trabajo combina búsqueda curada, valuación,
+                  negociación estratégica y acompañamiento legal para procesos
+                  transparentes, eficientes y seguros.
                 </p>
                 <div className={styles.ctaRow}>
-                  <a className={`${styles.btn} ${styles.btnPrimary}`} href="/property">
-                    Ver propiedades selectas
+                  <a className={`${styles.btn} ${styles.btnPrimary}`} href="/quienes-somos">
+                    Conocer a Cervantes
                   </a>
-                  <a className={styles.btn} href="/consultoria">
-                    Solicitar asesoría de inversión
+                  <a className={styles.btn} href="/contact">
+                    Solicitar una asesoría
                   </a>
                 </div>
               </article>
 
               <article className={styles.card}>
-                <h3 className={styles.cardTitle}>Vender una Propiedad</h3>
-                <p className={styles.cardText}>
-                  Valuación profesional, estrategia comercial premium, filtro de
-                  compradores y reportes de seguimiento. Discreción ante todo.
-                </p>
-                <div className={styles.ctaRow}>
-                  <a className={`${styles.btn} ${styles.btnPrimary}`} href="/contact">
-                    Solicitar valuación
-                  </a>
-                  <a className={styles.btn} href="/servicios">
-                    Ver proceso de venta
-                  </a>
-                </div>
+                <h3 className={styles.cardTitle}>Nuestra filosofía</h3>
+                <ul className={styles.checkList}>
+                  {philosophy.map((item) => (
+                    <li key={item} className={styles.checkItem}>
+                      <span className={styles.checkDot} aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </article>
             </div>
           </div>
@@ -156,63 +181,17 @@ const HomePremium = () => {
             <span className={styles.kicker}>Servicios</span>
             <h2 className={styles.h2}>Asesoría integral, estándar premium</h2>
             <p className={styles.lead}>
-              Un enfoque boutique con rigor: datos, negociación y ejecución
-              legal‑documental para operaciones seguras.
+              Portamos al nuevo sitio los servicios reales de Cervantes:
+              compra, venta, valuación, documentación y estrategia patrimonial.
             </p>
 
             <div className={styles.services}>
-              <div className={styles.serviceCard}>
-                <h3 className={styles.serviceTitle}>
-                  Compra de Propiedades Premium
-                </h3>
-                <p className={styles.serviceText}>
-                  Curaduría, visitas eficientes, negociación y acompañamiento
-                  hasta escrituración.
-                </p>
-              </div>
-              <div className={styles.serviceCard}>
-                <h3 className={styles.serviceTitle}>
-                  Venta y Representación de Propietarios
-                </h3>
-                <p className={styles.serviceText}>
-                  Estrategia comercial, material editorial, difusión selectiva y
-                  gestión de interesados.
-                </p>
-              </div>
-              <div className={styles.serviceCard}>
-                <h3 className={styles.serviceTitle}>
-                  Avalúos y Análisis de Mercado
-                </h3>
-                <p className={styles.serviceText}>
-                  Valuación profesional, comparables, rango de precio y plan de
-                  salida.
-                </p>
-              </div>
-              <div className={styles.serviceCard}>
-                <h3 className={styles.serviceTitle}>
-                  Asesoría Legal y Documentación
-                </h3>
-                <p className={styles.serviceText}>
-                  Revisión documental, riesgos, contrato, notaría y cierre con
-                  tranquilidad.
-                </p>
-              </div>
-              <div className={styles.serviceCard}>
-                <h3 className={styles.serviceTitle}>
-                  Estrategia Patrimonial e Inversión
-                </h3>
-                <p className={styles.serviceText}>
-                  Tesis de inversión, rentabilidad, plusvalía y planeación por
-                  horizonte.
-                </p>
-              </div>
-              <div className={styles.serviceCard}>
-                <h3 className={styles.serviceTitle}>Crédito Hipotecario</h3>
-                <p className={styles.serviceText}>
-                  Opciones comparadas y acompañamiento para obtener condiciones
-                  competitivas.
-                </p>
-              </div>
+              {servicesEs.map((service) => (
+                <div key={service.title} className={styles.serviceCard}>
+                  <h3 className={styles.serviceTitle}>{service.title}</h3>
+                  <p className={styles.serviceText}>{service.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -293,26 +272,12 @@ const HomePremium = () => {
               <div className={styles.card}>
                 <h3 className={styles.cardTitle}>Beneficios clave</h3>
                 <ul className={styles.checkList}>
-                  <li className={styles.checkItem}>
-                    <span className={styles.checkDot} aria-hidden="true" />
-                    Valuación profesional y análisis de mercado.
-                  </li>
-                  <li className={styles.checkItem}>
-                    <span className={styles.checkDot} aria-hidden="true" />
-                    Estrategia comercial premium y material editorial.
-                  </li>
-                  <li className={styles.checkItem}>
-                    <span className={styles.checkDot} aria-hidden="true" />
-                    Filtrado de compradores y visitas con protocolo.
-                  </li>
-                  <li className={styles.checkItem}>
-                    <span className={styles.checkDot} aria-hidden="true" />
-                    Acompañamiento legal y documental de principio a fin.
-                  </li>
-                  <li className={styles.checkItem}>
-                    <span className={styles.checkDot} aria-hidden="true" />
-                    Reportes de seguimiento y negociación con criterio.
-                  </li>
+                  {ownerBenefits.map((item) => (
+                    <li key={item} className={styles.checkItem}>
+                      <span className={styles.checkDot} aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
                 <div className={styles.ctaRow}>
                   <a className={`${styles.btn} ${styles.btnPrimary}`} href="/contact">
@@ -346,29 +311,18 @@ const HomePremium = () => {
             <span className={styles.kicker}>Autoridad</span>
             <h2 className={styles.h2}>Confianza respaldada por proceso</h2>
             <p className={styles.lead}>
-              Indicadores de marca y enfoque: zonas premium, soporte legal y una
-              mentalidad de inversión para decisiones informadas.
+              El nuevo frontend conserva el diseño premium, pero con el mensaje
+              real del sitio Cervantes: experiencia, zonas premium y criterio
+              inmobiliario.
             </p>
 
             <div className={styles.trustRow}>
-              <div className={styles.stat}>
-                <div className={styles.statValue}>+20</div>
-                <div className={styles.statLabel}>Años de experiencia</div>
-              </div>
-              <div className={styles.stat}>
-                <div className={styles.statValue}>CDMX</div>
-                <div className={styles.statLabel}>Zonas premium y micro‑mercados</div>
-              </div>
-              <div className={styles.stat}>
-                <div className={styles.statValue}>Legal</div>
-                <div className={styles.statLabel}>Revisión documental y cierre seguro</div>
-              </div>
-              <div className={styles.stat}>
-                <div className={styles.statValue}>Data</div>
-                <div className={styles.statLabel}>
-                  Análisis comparativo y estrategia patrimonial
+              {trustSignals.map((item) => (
+                <div key={item.value} className={styles.stat}>
+                  <div className={styles.statValue}>{item.value}</div>
+                  <div className={styles.statLabel}>{item.label}</div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>

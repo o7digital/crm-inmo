@@ -122,54 +122,82 @@
 
 .propertyFooter {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   margin-top: auto;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 14px;
 }
 
 .price {
   font-size: 22px;
   font-weight: 700;
   color: #ff5a3c;
+  line-height: 1;
   white-space: nowrap;
 }
 
+.actionButtons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+}
+
+.contactButton,
 .viewButton {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  background: #ff5a3c;
-  color: white;
+  justify-content: center;
+  gap: 6px;
+  min-height: 46px;
+  padding: 0 16px;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: all 0.3s ease;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.contactButton {
+  background: transparent;
+  color: #ff5a3c;
+  border: 1px solid #ff5a3c;
+}
+
+.contactButton:hover {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.viewButton {
+  background: #ff6725;
+  color: white;
   border: none;
   cursor: pointer;
 }
 
 .viewButton:hover {
-  background: #e04a2d;
-  transform: translateX(4px);
+  background: #ff3f25;
   color: white;
 }
 
 .viewButton:disabled {
   background: #ccc;
   cursor: not-allowed;
-  transform: none;
 }
 
+.contactButton i,
 .viewButton i {
-  transition: transform 0.3s ease;
+  font-size: 12px;
 }
 
-.viewButton:hover i {
-  transform: translateX(4px);
+@media (max-width: 1199px) {
+  .price {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -183,15 +211,20 @@
 
   .price {
     font-size: 18px;
+    white-space: normal;
   }
 
   .propertyFooter {
-    flex-direction: column;
     align-items: stretch;
   }
 
+  .actionButtons {
+    grid-template-columns: 1fr;
+  }
+
+  .contactButton,
   .viewButton {
     width: 100%;
-    justify-content: center;
+    min-height: 44px;
   }
 }

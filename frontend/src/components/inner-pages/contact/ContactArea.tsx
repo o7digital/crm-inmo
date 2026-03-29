@@ -15,20 +15,19 @@ interface DataType {
 const address_data: DataType[] = [
    {
       id: 1,
-      title: "We’r always happy to help.",
-      address_1: "ask@homy.com"
+      title: "Correo directo",
+      address_1: "info@cervantesbienesraices.com"
    },
    {
       id: 2,
       class_name: "skew-line",
-      title: "Our hotline number",
-      address_1: "+757 699 4478,",
-      address_2: "+991 377 9731",
+      title: "Cobertura",
+      address_1: "CDMX, Polanco, Lomas, Condesa, Roma y Santa Fe",
    },
    {
       id: 3,
-      title: "Live chat",
-      address_1: "www.homylivechat.com"
+      title: "Asesoría",
+      address_1: "Compra, venta, valuación e inversión patrimonial",
    },
 ]
 
@@ -39,7 +38,7 @@ const ContactArea = () => {
             <div className="row">
                <div className="col-xxl-9 col-xl-8 col-lg-10 m-auto">
                   <div className="title-one text-center wow fadeInUp">
-                     <h3>Questions? Feel Free to Reach Out Via Message.</h3>
+                     <h3>Hablemos de su próxima operación inmobiliaria.</h3>
                   </div>
                </div>
             </div>
@@ -55,7 +54,12 @@ const ContactArea = () => {
                               <Image src={circleImg} alt="" className="lazy-img" /></div>
                            <div className="text">
                               <p className="fs-22">{item.title}</p>
-                              <Link href="#" className="tran3s">{item.address_1}</Link>
+                              <Link
+                                 href={item.address_1.includes("@") ? `mailto:${item.address_1}` : "#"}
+                                 className="tran3s"
+                              >
+                                 {item.address_1}
+                              </Link>
                               {item.address_2 && <> { " " } <Link href="#" className="tran3s">{item.address_2}</Link></>}
                            </div>
                         </div>
@@ -66,16 +70,11 @@ const ContactArea = () => {
          </div>
 
          <div className="bg-pink mt-150 xl-mt-120 md-mt-80">
-            <div className="row">
-               <div className="col-xl-7 col-lg-6">
-                  <div className="form-style-one wow fadeInUp">
-                     <ContactForm />
-                  </div>
-               </div>
-               <div className="col-xl-5 col-lg-6 d-flex order-lg-first">
-                  <div className="contact-map-banner w-100">
-                     <div className="gmap_canvas h-100 w-100">
-                        <iframe className="gmap_iframe h-100 w-100" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=dhaka collage&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+            <div className="container">
+               <div className="row">
+                  <div className="col-xxl-8 col-xl-9 col-lg-10 m-auto">
+                     <div id="contact-form" className="form-style-one wow fadeInUp">
+                        <ContactForm />
                      </div>
                   </div>
                </div>

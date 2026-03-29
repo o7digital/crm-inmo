@@ -1,0 +1,15 @@
+# Robots.txt - Cervantes Bienes Raíces
+# Optimizado para SEO México - Bienes Raíces
+
+User-agent: *
+Allow: /
+
+Disallow: /dashboard/
+Disallow: /api/
+
+User-agent: Googlebot-Image
+Allow: /
+
+Sitemap: https://www.cervantesbienesraices.com/sitemap.xml
+
+Crawl-delay: 1
