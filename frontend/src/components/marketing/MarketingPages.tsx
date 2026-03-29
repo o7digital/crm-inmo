@@ -17,7 +17,16 @@ export function MarketingHomePage({ locale }: { locale: MarketingLocale }) {
   return (
     <MarketingShell locale={locale} page="home">
       <section className="border-b border-stone-200/80">
-        <div className="marketing-container grid gap-12 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:py-24">
+        <div className="marketing-container relative overflow-hidden rounded-[2rem] border border-stone-200/80 bg-white/80">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/marketing/hero-bg.jpg')" }}
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(251,248,243,0.96)_0%,rgba(251,248,243,0.88)_42%,rgba(251,248,243,0.58)_72%,rgba(251,248,243,0.22)_100%)]" aria-hidden="true" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(255,255,255,0.06)_100%)]" aria-hidden="true" />
+
+          <div className="relative grid gap-12 px-6 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:py-24">
           <div className="space-y-8">
             <div className="flex flex-wrap gap-3">
               {marketing.hero.tags.map((tag) => (
@@ -96,6 +105,7 @@ export function MarketingHomePage({ locale }: { locale: MarketingLocale }) {
               ))}
             </div>
           </div>
+        </div>
         </div>
       </section>
 
