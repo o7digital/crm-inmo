@@ -4,10 +4,8 @@ import React, { useRef, useEffect, PropsWithChildren } from 'react';
 import { Fancybox as NativeFancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 
-import { OptionsType } from '@fancyapps/ui/types/Fancybox/options';
-
 interface Props {
-   options?: Partial<OptionsType>;
+   options?: Record<string, unknown>;
    delegate?: string;
 }
 
