@@ -129,7 +129,7 @@ const HomePremium = () => {
             </p>
 
             <div className={styles.heroActions}>
-              <a className={`${styles.btn} ${styles.btnPrimary}`} href="/property">
+              <a className={`${styles.btn} ${styles.btnPrimary}`} href="/listing_06">
                 Explorar Propiedades
               </a>
               <a className={styles.btn} href="/contact">
@@ -148,7 +148,7 @@ const HomePremium = () => {
                   placeholder="Buscar por zona, tipo de propiedad o estilo de vida…"
                   aria-label="Buscar propiedades"
                 />
-                <a className={`${styles.btn} ${styles.btnPrimary}`} href="/property">
+                <a className={`${styles.btn} ${styles.btnPrimary}`} href="/listing_06">
                   Buscar
                 </a>
               </div>
@@ -270,7 +270,7 @@ const HomePremium = () => {
                       ) : null}
                     </div>
                     <div className={styles.ctaRow}>
-                      <a className={`${styles.btn} ${styles.btnPrimary}`} href="/property">
+                      <a className={`${styles.btn} ${styles.btnPrimary}`} href="/listing_06">
                         Ver detalles
                       </a>
                       <a className={styles.btn} href="/contact">
