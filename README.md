@@ -30,3 +30,4 @@ Login/register flows hit `/api/auth`. All resources are tenant-scoped via JWT.
 - AI extraction is a stub (filename parsing + sample dates) to stay demoable without external services.
 - Files are stored locally under `api/uploads/{tenantId}`. Swap to S3 or another provider for production.
 - Keep JWT secret safe and enforce HTTPS in real deployments.
+- Cervantes migration notes: `docs/cervantes-migration-notes.md`
