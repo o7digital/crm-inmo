@@ -23,9 +23,9 @@ const FooterThreeFr = () => {
                            CP 11910, Miguel Hidalgo, CDMX.
                         </p>
                         <ul className="style-none d-flex align-items-center social-icon">
-                           <li><Link href="#"><i className="fa-brands fa-facebook-f"></i></Link></li>
-                           <li><Link href="#"><i className="fa-brands fa-instagram"></i></Link></li>
-                           <li><Link href="#"><i className="fa-brands fa-linkedin-in"></i></Link></li>
+                           <li><a href="https://www.facebook.com/cervantesbienesraices" target="_blank" rel="noreferrer"><i className="fa-brands fa-facebook-f"></i></a></li>
+                           <li><a href="https://www.instagram.com/cervantesbienesraices" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a></li>
+                           <li><a href="https://www.linkedin.com" target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin-in"></i></a></li>
                         </ul>
                         <Image src={footerShape_1} alt="" className="lazy-img ms-auto d-none d-xl-block" />
                      </div>
@@ -35,10 +35,10 @@ const FooterThreeFr = () => {
                      <div className="footer-nav">
                         <h5 className="footer-title">Newsletter</h5>
                         <p className="mb-20">Abonnez-vous pour recevoir les mises à jour importantes.</p>
-                        <div className="email-input-group d-flex">
+                        <form className="newsletter-form position-relative" onSubmit={(event) => event.preventDefault()}>
                            <input type="email" placeholder="Entrez votre email" />
                            <button type="submit" className="btn-four fw-500 text-uppercase">Envoyer</button>
-                        </div>
+                        </form>
                         <div className="fs-14 mt-10">Nous envoyons uniquement des emails pertinents et de qualité.</div>
                      </div>
                   </div>

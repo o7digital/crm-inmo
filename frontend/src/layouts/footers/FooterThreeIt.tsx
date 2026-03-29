@@ -23,9 +23,9 @@ const FooterThreeIt = () => {
                            CP 11910, Miguel Hidalgo, CDMX.
                         </p>
                         <ul className="style-none d-flex align-items-center social-icon">
-                           <li><Link href="#"><i className="fa-brands fa-facebook-f"></i></Link></li>
-                           <li><Link href="#"><i className="fa-brands fa-instagram"></i></Link></li>
-                           <li><Link href="#"><i className="fa-brands fa-linkedin-in"></i></Link></li>
+                           <li><a href="https://www.facebook.com/cervantesbienesraices" target="_blank" rel="noreferrer"><i className="fa-brands fa-facebook-f"></i></a></li>
+                           <li><a href="https://www.instagram.com/cervantesbienesraices" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a></li>
+                           <li><a href="https://www.linkedin.com" target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin-in"></i></a></li>
                         </ul>
                         <Image src={footerShape_1} alt="" className="lazy-img ms-auto d-none d-xl-block" />
                      </div>
@@ -35,10 +35,10 @@ const FooterThreeIt = () => {
                      <div className="footer-nav">
                         <h5 className="footer-title">Newsletter</h5>
                         <p className="mb-20">Iscriviti per ricevere aggiornamenti importanti.</p>
-                        <div className="email-input-group d-flex">
+                        <form className="newsletter-form position-relative" onSubmit={(event) => event.preventDefault()}>
                            <input type="email" placeholder="Inserisci la tua email" />
                            <button type="submit" className="btn-four fw-500 text-uppercase">Invia</button>
-                        </div>
+                        </form>
                         <div className="fs-14 mt-10">Inviamo solo email rilevanti e di valore.</div>
                      </div>
                   </div>

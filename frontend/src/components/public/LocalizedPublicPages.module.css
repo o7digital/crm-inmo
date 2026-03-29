@@ -116,11 +116,30 @@
 }
 
 .channelLink {
+  display: block;
   color: inherit;
 }
 
 .channelLink:hover {
   color: inherit;
+}
+
+.channelValue {
+  margin: 0 0 12px;
+  color: #111827;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.channelDescription {
+  margin: 0;
+  color: #374151;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 .postWrap {

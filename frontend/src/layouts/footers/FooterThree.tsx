@@ -18,6 +18,51 @@ const FooterThree = () => {
       ? "/de"
       : "/";
 
+   const copy = lang === "en"
+      ? {
+         title: "Newsletter",
+         description: "Subscribe to receive important updates.",
+         placeholder: "Enter your email",
+         action: "Send",
+         note: "We only send relevant and valuable emails.",
+         copyright: "Copyright ©2025 CERVANTES REAL ESTATE. All rights reserved.",
+      }
+      : lang === "fr"
+      ? {
+         title: "Newsletter",
+         description: "Abonnez-vous pour recevoir les mises à jour importantes.",
+         placeholder: "Entrez votre email",
+         action: "Envoyer",
+         note: "Nous envoyons uniquement des emails pertinents et utiles.",
+         copyright: "Copyright ©2025 CERVANTES IMMOBILIER. Tous droits réservés.",
+      }
+      : lang === "it"
+      ? {
+         title: "Newsletter",
+         description: "Iscriviti per ricevere aggiornamenti importanti.",
+         placeholder: "Inserisci la tua email",
+         action: "Invia",
+         note: "Inviamo solo email rilevanti e utili.",
+         copyright: "Copyright ©2025 CERVANTES IMMOBILIARE. Tutti i diritti riservati.",
+      }
+      : lang === "de"
+      ? {
+         title: "Newsletter",
+         description: "Abonnieren Sie, um wichtige Updates zu erhalten.",
+         placeholder: "E-Mail eingeben",
+         action: "Senden",
+         note: "Wir versenden nur relevante und wertvolle Informationen.",
+         copyright: "Copyright ©2025 CERVANTES REAL ESTATE. Alle Rechte vorbehalten.",
+      }
+      : {
+         title: "Boletín",
+         description: "Suscríbete y recibe noticias importantes regularmente",
+         placeholder: "Ingresa tu correo electrónico",
+         action: "Enviar",
+         note: "Solo enviamos correos interesantes y relevantes.",
+         copyright: "Copyright ©2025 CERVANTES BIENES RAÍCES. Todos los derechos reservados.",
+      };
+
    return (
       <div className="footer-three">
          <div className="container container-large">
@@ -35,9 +80,9 @@ const FooterThree = () => {
                            CP 11910, Miguel Hidalgo, CDMX.
                         </p>
                         <ul className="style-none d-flex align-items-center social-icon">
-                           <li><Link href="#"><i className="fa-brands fa-facebook-f"></i></Link></li>
-                           <li><Link href="#"><i className="fa-brands fa-instagram"></i></Link></li>
-                           <li><Link href="#"><i className="fa-brands fa-linkedin-in"></i></Link></li>
+                           <li><a href="https://www.facebook.com/cervantesbienesraices" target="_blank" rel="noreferrer"><i className="fa-brands fa-facebook-f"></i></a></li>
+                           <li><a href="https://www.instagram.com/cervantesbienesraices" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a></li>
+                           <li><a href="https://www.linkedin.com" target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin-in"></i></a></li>
                         </ul>
                         <Image src={footerShape_1} alt="" className="lazy-img ms-auto d-none d-xl-block" />
                      </div>
@@ -45,13 +90,13 @@ const FooterThree = () => {
 
                   <div className="col-xl-3 col-lg-4 col-md-6 mb-30">
                      <div className="footer-nav">
-                        <h5 className="footer-title">Boletín</h5>
-                        <p className="mb-20">Suscríbete y recibe noticias importantes regularmente</p>
-                        <div className="email-input-group d-flex">
-                           <input type="email" placeholder="Ingresa tu correo electrónico" />
-                           <button type="submit" className="btn-four fw-500 text-uppercase">Enviar</button>
-                        </div>
-                        <div className="fs-14 mt-10">Solo enviamos correos interesantes y relevantes.</div>
+                        <h5 className="footer-title">{copy.title}</h5>
+                        <p className="mb-20">{copy.description}</p>
+                        <form className="newsletter-form position-relative" onSubmit={(event) => event.preventDefault()}>
+                           <input type="email" placeholder={copy.placeholder} />
+                           <button type="submit" className="btn-four fw-500 text-uppercase">{copy.action}</button>
+                        </form>
+                        <div className="fs-14 mt-10">{copy.note}</div>
                      </div>
                   </div>
                </div>
@@ -63,7 +108,7 @@ const FooterThree = () => {
                <p className="seo-footer">
                   bienes raíces de lujo CDMX · inmobiliaria premium Ciudad de México · departamentos en Polanco · casas en Lomas de Chapultepec · propiedades exclusivas CDMX · inversión inmobiliaria México · asesoría inmobiliaria profesional · compra de propiedades en CDMX · casas premium Ciudad de México · vivienda para expatriados México · propiedades en Roma · inmuebles en Condesa · zonas seguras CDMX · mercado inmobiliario premium · valuación inmobiliaria CDMX · consultores inmobiliarios México · patrimonio inmobiliario · propiedades de alto nivel · compra y venta de inmuebles premium · agencia inmobiliaria de confianza
                </p>
-               <p className="m-0">Copyright ©2025 CERVANTES BIENES RAÍCES. Todos los derechos reservados.</p>
+               <p className="m-0">{copy.copyright}</p>
             </div>
          </div>
       </div>

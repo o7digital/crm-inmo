@@ -262,8 +262,8 @@ export function LocalizedContactContentPage({ locale }: { locale: MarketingLocal
                     <a href={channel.href} className={styles.channelLink}>
                       <article className={styles.card}>
                         <span className={styles.smallKicker}>{channel.title}</span>
-                        <h3 className="mb-15">{channel.value}</h3>
-                        <p className="fs-18 text-dark m-0">{channel.description}</p>
+                        <p className={styles.channelValue}>{channel.value}</p>
+                        <p className={styles.channelDescription}>{channel.description}</p>
                       </article>
                     </a>
                   </div>
