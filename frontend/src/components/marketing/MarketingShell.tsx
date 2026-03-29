@@ -12,10 +12,11 @@ type Props = {
   locale: MarketingLocale;
   page: MarketingPageKey;
   slug?: string;
+  hideHeader?: boolean;
   children: ReactNode;
 };
 
-export function MarketingShell({ locale, page, slug, children }: Props) {
+export function MarketingShell({ locale, page, slug, hideHeader = false, children }: Props) {
   const marketing = getMarketingContent(locale);
   const navItems = [
     { page: 'home' as const, label: marketing.nav.home },
@@ -27,50 +28,52 @@ export function MarketingShell({ locale, page, slug, children }: Props) {
 
   return (
     <div className="marketing-page min-h-screen">
-      <header className="marketing-header">
-        <div className="marketing-container flex flex-col gap-4 py-5">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <Link href={getMarketingPath(locale, 'home')} className="flex items-center gap-3">
-              <div className="marketing-brand-mark">CBR</div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.32em] text-stone-500">{marketing.tagLine}</p>
-                <p className="text-lg font-semibold text-stone-900">Cervantes Bienes Raíces</p>
-              </div>
-            </Link>
+      {!hideHeader ? (
+        <header className="marketing-header">
+          <div className="marketing-container flex flex-col gap-4 py-5">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <Link href={getMarketingPath(locale, 'home')} className="flex items-center gap-3">
+                <div className="marketing-brand-mark">CBR</div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.32em] text-stone-500">{marketing.tagLine}</p>
+                  <p className="text-lg font-semibold text-stone-900">Cervantes Bienes Raíces</p>
+                </div>
+              </Link>
 
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
-              <nav className="flex flex-wrap gap-2 text-sm font-medium text-stone-700">
-                {navItems.map((item) => (
-                  <Link key={item.page} href={getMarketingPath(locale, item.page)} className="marketing-nav-link">
-                    {item.label}
+              <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
+                <nav className="flex flex-wrap gap-2 text-sm font-medium text-stone-700">
+                  {navItems.map((item) => (
+                    <Link key={item.page} href={getMarketingPath(locale, item.page)} className="marketing-nav-link">
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+
+                <div className="flex flex-wrap gap-2">
+                  <Link href="/login" className="marketing-button-secondary">
+                    {marketing.ctas.crmLogin}
                   </Link>
-                ))}
-              </nav>
-
-              <div className="flex flex-wrap gap-2">
-                <Link href="/login" className="marketing-button-secondary">
-                  {marketing.ctas.crmLogin}
-                </Link>
-                <Link href="/dashboard" className="marketing-button-primary">
-                  {marketing.ctas.dashboard}
-                </Link>
+                  <Link href="/dashboard" className="marketing-button-primary">
+                    {marketing.ctas.dashboard}
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-stone-500">
-            {marketingLocales.map((item) => (
-              <Link
-                key={item}
-                href={getMarketingPath(item, page, slug)}
-                className={`rounded-full px-3 py-2 ${item === locale ? 'bg-stone-900 text-stone-50' : 'bg-white/70 text-stone-600'}`}
-              >
-                {item}
-              </Link>
-            ))}
+            <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-stone-500">
+              {marketingLocales.map((item) => (
+                <Link
+                  key={item}
+                  href={getMarketingPath(item, page, slug)}
+                  className={`rounded-full px-3 py-2 ${item === locale ? 'bg-stone-900 text-stone-50' : 'bg-white/70 text-stone-600'}`}
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
+      ) : null}
 
       <main>{children}</main>
 

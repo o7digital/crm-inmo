@@ -6,8 +6,10 @@ import {
   getMarketingContent,
   getMarketingPath,
   getPostBySlug,
+  marketingLocales,
   type MarketingLocale,
 } from '@/lib/marketingContent';
+import { MarketingCookieBanner } from './MarketingCookieBanner';
 import { MarketingContactForm } from './MarketingContactForm';
 import { MarketingShell } from './MarketingShell';
 
@@ -15,102 +17,171 @@ export function MarketingHomePage({ locale }: { locale: MarketingLocale }) {
   const marketing = getMarketingContent(locale);
   const heroUi = {
     es: {
+      homeLabel: 'Home',
+      login: 'Login',
+      primaryCta: 'Explorar Propiedades',
       secondaryCta: 'Quiero vender mi propiedad',
       badge: 'Alta selección • compradores calificados',
+      displayTitle: 'Casas en Compra,\nVenta y\nDepartamentos en\nRenta en México',
       searchPlaceholder: 'Buscar por zona, tipo de propiedad o estilo de vida...',
       searchButton: 'Buscar',
     },
     en: {
+      homeLabel: 'Home',
+      login: 'Login',
+      primaryCta: 'Explore Properties',
       secondaryCta: 'I want to sell my property',
       badge: 'Curated selection • qualified buyers',
+      displayTitle: 'Homes for Purchase,\nSale and\nRental Apartments\nin Mexico',
       searchPlaceholder: 'Search by area, property type or lifestyle...',
       searchButton: 'Search',
     },
     fr: {
+      homeLabel: 'Home',
+      login: 'Login',
+      primaryCta: 'Explorer les proprietes',
       secondaryCta: 'Je veux vendre mon bien',
       badge: 'Sélection premium • acheteurs qualifiés',
+      displayTitle: 'Maisons a l achat,\na la vente et\nappartements en\nlocation au Mexique',
       searchPlaceholder: 'Rechercher par zone, type de bien ou style de vie...',
       searchButton: 'Rechercher',
     },
     it: {
+      homeLabel: 'Home',
+      login: 'Login',
+      primaryCta: 'Esplora proprieta',
       secondaryCta: 'Voglio vendere il mio immobile',
       badge: 'Selezione premium • acquirenti qualificati',
+      displayTitle: 'Case in acquisto,\nin vendita e\nappartamenti in\naffitto in Messico',
       searchPlaceholder: 'Cerca per zona, tipo di immobile o stile di vita...',
       searchButton: 'Cerca',
     },
     de: {
+      homeLabel: 'Home',
+      login: 'Login',
+      primaryCta: 'Immobilien entdecken',
       secondaryCta: 'Ich möchte meine Immobilie verkaufen',
       badge: 'Premium-Auswahl • qualifizierte Käufer',
+      displayTitle: 'Hauser zum Kauf,\nVerkauf und\nWohnungen zur\nMiete in Mexiko',
       searchPlaceholder: 'Nach Lage, Immobilientyp oder Lebensstil suchen...',
       searchButton: 'Suchen',
     },
   }[locale];
 
   return (
-    <MarketingShell locale={locale} page="home">
-      <section className="relative overflow-hidden border-b border-stone-200/80 bg-[#f7f2ea]">
-        <div className="absolute inset-0 bg-[#f7f2ea]" aria-hidden="true" />
-        <div className="relative min-h-[720px]">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/marketing/hero-bg.jpg')" }}
-            aria-hidden="true"
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'linear-gradient(90deg, rgba(249,245,239,0.98) 0%, rgba(249,245,239,0.95) 28%, rgba(249,245,239,0.72) 54%, rgba(249,245,239,0.16) 100%)',
-            }}
-            aria-hidden="true"
-          />
+    <MarketingShell locale={locale} page="home" hideHeader>
+      <section className="px-0 pt-3 md:px-3 md:pt-5">
+        <div className="mx-auto overflow-hidden rounded-[1.75rem] border border-stone-200/90 bg-[#f7f1e8] shadow-[0_18px_50px_rgba(54,38,20,0.08)] md:w-[calc(100%_-_1.5rem)] md:max-w-[1600px]">
+          <div className="relative min-h-[640px]">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: "url('/marketing/hero-bg.jpg')" }}
+              aria-hidden="true"
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(90deg, rgba(248,244,238,0.95) 0%, rgba(248,244,238,0.91) 35%, rgba(248,244,238,0.48) 62%, rgba(248,244,238,0.1) 100%)',
+              }}
+              aria-hidden="true"
+            />
 
-          <div className="relative marketing-container flex min-h-[720px] items-start py-16 lg:items-center lg:py-20">
-            <div className="max-w-[700px] space-y-7">
-              <div className="flex flex-wrap gap-3">
-                {marketing.hero.tags.map((tag) => (
-                  <span key={tag} className="marketing-pill">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="space-y-6">
-                <p className="marketing-kicker">{marketing.hero.eyebrow}</p>
-                <h1 className="max-w-4xl text-5xl font-extrabold leading-[0.92] tracking-[-0.05em] text-stone-950 sm:text-6xl lg:text-[5.2rem]">
-                  {marketing.hero.title}
-                </h1>
-                <p className="max-w-2xl text-lg leading-8 text-stone-600 lg:text-[1.15rem]">
-                  {marketing.hero.description}
-                </p>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-3">
-                <Link href={getMarketingPath(locale, 'services')} className="marketing-button-primary">
-                  {marketing.ctas.contact}
+            <div className="relative flex min-h-[640px] flex-col">
+              <div className="flex items-start justify-between gap-6 px-4 py-4 lg:px-8 lg:py-5">
+                <Link href={getMarketingPath(locale, 'home')} className="flex items-center gap-4">
+                  <div className="relative h-[82px] w-[92px] shrink-0 overflow-hidden rounded-[2px] bg-black">
+                    <Image src="/marketing/logo.png" alt="Cervantes Bienes Raíces" fill className="object-contain p-1" sizes="92px" priority />
+                  </div>
+                  <div className="hidden min-w-0 lg:block">
+                    <p className="truncate text-[11px] uppercase tracking-[0.32em] text-stone-500">Cervantes Bienes Raíces • CDMX</p>
+                  </div>
                 </Link>
-                <Link href={getMarketingPath(locale, 'contact')} className="marketing-button-secondary bg-white/88">
-                  {heroUi.secondaryCta}
-                </Link>
-                <span className="rounded-full border border-stone-200 bg-white/78 px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
-                  {heroUi.badge}
-                </span>
-              </div>
 
-              <form className="max-w-[620px]">
-                <div className="flex flex-col gap-3 rounded-[1.7rem] border border-stone-200/90 bg-white/86 p-3 shadow-[0_10px_30px_rgba(57,41,23,0.08)] sm:flex-row sm:items-center">
-                  <input
-                    type="text"
-                    placeholder={heroUi.searchPlaceholder}
-                    className="h-14 flex-1 rounded-[1.25rem] border border-stone-200 bg-white px-5 text-base text-stone-700 outline-none"
-                  />
-                  <button type="button" className="marketing-button-primary h-14 min-w-[170px]">
-                    {heroUi.searchButton}
-                  </button>
+                <div className="flex items-center gap-4 lg:gap-6">
+                  <nav className="hidden items-center gap-7 text-[15px] font-medium text-stone-800 xl:flex">
+                    <Link href={getMarketingPath(locale, 'home')} className="flex items-center gap-1">
+                      <span>{heroUi.homeLabel}</span>
+                      <span className="text-[9px] text-stone-500">v</span>
+                    </Link>
+                    <Link href={getMarketingPath(locale, 'about')} className="flex items-center gap-1">
+                      <span>{marketing.nav.about}</span>
+                      <span className="text-[9px] text-stone-500">v</span>
+                    </Link>
+                    <Link href={getMarketingPath(locale, 'services')} className="flex items-center gap-1">
+                      <span>{marketing.nav.services}</span>
+                      <span className="text-[9px] text-stone-500">v</span>
+                    </Link>
+                    <Link href={getMarketingPath(locale, 'blog')} className="flex items-center gap-1">
+                      <span>{marketing.nav.blog}</span>
+                      <span className="text-[9px] text-stone-500">v</span>
+                    </Link>
+                    <Link href={getMarketingPath(locale, 'contact')} className="flex items-center gap-1">
+                      <span>{marketing.nav.contact}</span>
+                      <span className="text-[9px] text-stone-500">v</span>
+                    </Link>
+                  </nav>
+
+                  <div className="hidden items-center gap-2 text-sm font-semibold text-stone-700 lg:flex">
+                    {marketingLocales.map((item) => (
+                      <Link key={item} href={getMarketingPath(item, 'home')} className={item === locale ? 'text-stone-950' : 'text-stone-500'}>
+                        {item.toUpperCase()}
+                      </Link>
+                    ))}
+                  </div>
+
+                  <Link
+                    href="/login"
+                    className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-stone-200/90 bg-white/88 px-4 text-sm font-semibold text-stone-800 shadow-[0_10px_25px_rgba(58,40,21,0.08)]"
+                  >
+                    <span>{heroUi.login}</span>
+                  </Link>
                 </div>
-              </form>
+              </div>
+
+              <div className="flex flex-1 items-start px-4 pb-0 pt-2 lg:px-8 lg:pt-3">
+                <div className="max-w-[650px]">
+                  <h1 className="whitespace-pre-line text-[clamp(3.2rem,7vw,5.1rem)] font-extrabold leading-[0.9] tracking-[-0.065em] text-stone-950">
+                    {heroUi.displayTitle}
+                  </h1>
+                  <p className="mt-5 max-w-[760px] text-[15px] leading-7 text-stone-600">
+                    Acompañamos a compradores, propietarios e inversionistas con valuacion profesional, asesoria legal y una
+                    estrategia comercial de alto nivel para propiedades selectas en Ciudad de Mexico.
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap items-center gap-3">
+                    <Link href={getMarketingPath(locale, 'services')} className="rounded-full bg-[#ead4a6] px-6 py-3 text-[15px] font-semibold text-stone-900 shadow-[0_10px_20px_rgba(88,61,25,0.08)]">
+                      {heroUi.primaryCta}
+                    </Link>
+                    <Link href={getMarketingPath(locale, 'contact')} className="rounded-full bg-white/88 px-6 py-3 text-[15px] font-semibold text-stone-900 shadow-[0_10px_20px_rgba(88,61,25,0.08)]">
+                      {heroUi.secondaryCta}
+                    </Link>
+                    <span className="rounded-full bg-white/70 px-4 py-3 text-xs font-semibold text-stone-600 shadow-[0_10px_20px_rgba(88,61,25,0.05)]">
+                      {heroUi.badge}
+                    </span>
+                  </div>
+
+                  <form className="mt-5 max-w-[640px]">
+                    <div className="flex flex-col gap-3 rounded-[1.6rem] bg-white/70 p-3 shadow-[0_12px_30px_rgba(57,41,23,0.08)] sm:flex-row sm:items-center">
+                      <input
+                        type="text"
+                        placeholder={heroUi.searchPlaceholder}
+                        className="h-14 flex-1 rounded-full border border-stone-200/80 bg-white px-5 text-base text-stone-700 outline-none"
+                      />
+                      <button
+                        type="button"
+                        className="h-14 min-w-[180px] rounded-full border border-[#d8bf8c] bg-[#ead4a6] px-5 text-base font-semibold text-stone-900"
+                      >
+                        {heroUi.searchButton}
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
+
+          <MarketingCookieBanner locale={locale} />
         </div>
 
         <div className="marketing-container relative z-10 grid gap-3 py-6 sm:grid-cols-2 lg:grid-cols-4">
