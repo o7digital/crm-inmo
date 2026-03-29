@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Fancybox = (props: PropsWithChildren<Props>) => {
-   const containerRef = useRef(null);
+   const containerRef = useRef<HTMLDivElement | null>(null);
 
    useEffect(() => {
       const container = containerRef.current;
@@ -20,7 +20,7 @@ const Fancybox = (props: PropsWithChildren<Props>) => {
       const delegate = props.delegate || '[data-fancybox]';
       const options = props.options || {};
 
-      NativeFancybox.bind(container, delegate, options);
+      NativeFancybox.bind(container, delegate, options as any);
 
       return () => {
          NativeFancybox.unbind(container);
