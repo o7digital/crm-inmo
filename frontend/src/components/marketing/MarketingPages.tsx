@@ -13,21 +13,59 @@ import { MarketingShell } from './MarketingShell';
 
 export function MarketingHomePage({ locale }: { locale: MarketingLocale }) {
   const marketing = getMarketingContent(locale);
+  const heroUi = {
+    es: {
+      secondaryCta: 'Quiero vender mi propiedad',
+      badge: 'Alta selección • compradores calificados',
+      searchPlaceholder: 'Buscar por zona, tipo de propiedad o estilo de vida...',
+      searchButton: 'Buscar',
+    },
+    en: {
+      secondaryCta: 'I want to sell my property',
+      badge: 'Curated selection • qualified buyers',
+      searchPlaceholder: 'Search by area, property type or lifestyle...',
+      searchButton: 'Search',
+    },
+    fr: {
+      secondaryCta: 'Je veux vendre mon bien',
+      badge: 'Sélection premium • acheteurs qualifiés',
+      searchPlaceholder: 'Rechercher par zone, type de bien ou style de vie...',
+      searchButton: 'Rechercher',
+    },
+    it: {
+      secondaryCta: 'Voglio vendere il mio immobile',
+      badge: 'Selezione premium • acquirenti qualificati',
+      searchPlaceholder: 'Cerca per zona, tipo di immobile o stile di vita...',
+      searchButton: 'Cerca',
+    },
+    de: {
+      secondaryCta: 'Ich möchte meine Immobilie verkaufen',
+      badge: 'Premium-Auswahl • qualifizierte Käufer',
+      searchPlaceholder: 'Nach Lage, Immobilientyp oder Lebensstil suchen...',
+      searchButton: 'Suchen',
+    },
+  }[locale];
 
   return (
     <MarketingShell locale={locale} page="home">
       <section className="border-b border-stone-200/80">
-        <div className="marketing-container relative overflow-hidden rounded-[2rem] border border-stone-200/80 bg-white/80">
+        <div className="marketing-container relative overflow-hidden rounded-[2rem] border border-stone-200/80 bg-white/80 shadow-[0_24px_70px_rgba(57,41,23,0.12)]">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url('/marketing/hero-bg.jpg')" }}
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(251,248,243,0.96)_0%,rgba(251,248,243,0.88)_42%,rgba(251,248,243,0.58)_72%,rgba(251,248,243,0.22)_100%)]" aria-hidden="true" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(255,255,255,0.06)_100%)]" aria-hidden="true" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(90deg, rgba(249,245,239,0.97) 0%, rgba(249,245,239,0.95) 34%, rgba(249,245,239,0.76) 56%, rgba(249,245,239,0.2) 100%)',
+            }}
+            aria-hidden="true"
+          />
 
-          <div className="relative grid gap-12 px-6 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:py-24">
-          <div className="space-y-8">
+          <div className="relative px-6 py-14 lg:px-10 lg:py-16">
+            <div className="max-w-[680px] space-y-7">
             <div className="flex flex-wrap gap-3">
               {marketing.hero.tags.map((tag) => (
                 <span key={tag} className="marketing-pill">
@@ -38,74 +76,46 @@ export function MarketingHomePage({ locale }: { locale: MarketingLocale }) {
 
             <div className="space-y-6">
               <p className="marketing-kicker">{marketing.hero.eyebrow}</p>
-              <h1 className="marketing-display max-w-4xl text-6xl leading-none text-stone-900 sm:text-7xl">
+              <h1 className="max-w-4xl text-5xl font-extrabold leading-[0.92] tracking-[-0.05em] text-stone-950 sm:text-6xl lg:text-[5.2rem]">
                 {marketing.hero.title}
               </h1>
-              <p className="max-w-2xl text-lg leading-8 text-stone-600">{marketing.hero.description}</p>
+              <p className="max-w-2xl text-lg leading-8 text-stone-600 lg:text-[1.15rem]">{marketing.hero.description}</p>
             </div>
 
-            <div className="flex flex-wrap gap-3">
-              <Link href={getMarketingPath(locale, 'contact')} className="marketing-button-primary">
+            <div className="flex flex-wrap items-center gap-3">
+              <Link href={getMarketingPath(locale, 'services')} className="marketing-button-primary">
                 {marketing.ctas.contact}
               </Link>
-              <Link href={getMarketingPath(locale, 'services')} className="marketing-button-secondary">
-                {marketing.ctas.services}
+              <Link href={getMarketingPath(locale, 'contact')} className="marketing-button-secondary bg-white/88">
+                {heroUi.secondaryCta}
               </Link>
+              <span className="rounded-full border border-stone-200 bg-white/78 px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
+                {heroUi.badge}
+              </span>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2">
-              {marketing.hero.aboutCards.map((paragraph) => (
-                <div key={paragraph} className="marketing-card p-5">
-                  <p className="text-sm leading-7 text-stone-600">{paragraph}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-5">
-            <div className="marketing-panel overflow-hidden p-6">
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.18em] text-stone-500">{marketing.nav.home}</p>
-                  <h2 className="mt-2 text-2xl font-semibold text-stone-900">{marketing.hero.coverageTitle}</h2>
-                </div>
-                <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-amber-800">
-                  {marketing.hero.coverageBadge}
-                </span>
+            <form className="max-w-[620px]">
+              <div className="flex flex-col gap-3 rounded-[1.7rem] border border-stone-200/90 bg-white/86 p-3 shadow-[0_10px_30px_rgba(57,41,23,0.08)] sm:flex-row sm:items-center">
+                <input
+                  type="text"
+                  placeholder={heroUi.searchPlaceholder}
+                  className="h-14 flex-1 rounded-[1.25rem] border border-stone-200 bg-white px-5 text-base text-stone-700 outline-none"
+                />
+                <button type="button" className="marketing-button-primary h-14 min-w-[170px]">
+                  {heroUi.searchButton}
+                </button>
               </div>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {marketing.areas.map((area) => (
-                  <span key={area} className="marketing-chip">
-                    {area}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-8 rounded-[2rem] bg-stone-950 px-6 py-8 text-stone-50">
-                <p className="text-xl leading-8">“{marketing.hero.quote}”</p>
-                <div className="mt-6 flex items-center gap-4">
-                  <div className="relative h-16 w-16 overflow-hidden rounded-2xl ring-1 ring-white/10">
-                    <Image src="/marketing/javier-cervantes.png" alt="Javier Cervantes" fill className="object-cover" sizes="64px" priority />
-                  </div>
-                  <div>
-                    <p className="font-semibold">Javier Cervantes</p>
-                    <p className="text-sm text-stone-400">{marketing.hero.founderRole}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2">
-              {marketing.stats.map((item) => (
-                <div key={item.label} className="marketing-card p-5">
-                  <p className="text-3xl font-semibold text-stone-900">{item.value}</p>
-                  <p className="mt-2 text-sm text-stone-600">{item.label}</p>
-                </div>
-              ))}
-            </div>
+            </form>
           </div>
         </div>
+
+        <div className="marketing-container grid gap-3 pt-5 sm:grid-cols-2 lg:grid-cols-4">
+          {marketing.stats.map((item) => (
+            <div key={item.label} className="marketing-card bg-white/82 p-5">
+              <p className="text-3xl font-semibold text-stone-900">{item.value}</p>
+              <p className="mt-2 text-sm text-stone-600">{item.label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
